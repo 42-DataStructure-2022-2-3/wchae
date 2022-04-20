@@ -213,5 +213,4 @@ int main(void)
     c = sumPolyList(a, b);
     printf("-------c------\n");
     displayPolyList(c);
-
 }
