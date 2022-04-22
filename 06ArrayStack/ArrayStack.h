@@ -5,24 +5,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct ArrayStackNodeType
+typedef struct StackNodeType
 {
 	int data;
-} ArrayStackNode;
+} StackNode;
 typedef struct ArrayStackType
 {
 	int maxElementCount;	 	//최대 노드 개수	
 	int currentElementCount;	//현재 노드 개수
-	ArrayStackNode *pElement;			//원소 저장을 위한 배열 포인터
+	StackNode *pElement;			//원소 저장을 위한 배열 포인터
 } ArrayStack;
 
 ArrayStack* createArrayStack(int maxElementCount);
 int isArrayStackFull(ArrayStack* pList);
 int	isArrayStackEmpty(ArrayStack *pList);
 
-int	push(ArrayStack *pList, ArrayStackNode element);
-ArrayStackNode *pop(ArrayStack *pList);
-ArrayStackNode *peek(ArrayStack *pList);
+int	push(ArrayStack *pList, StackNode element);
+StackNode *pop(ArrayStack *pList);
+StackNode *peek(ArrayStack *pList);
 
 void deleteArrayStack(ArrayStack* pList);
 int	isArrayStackEmpty(ArrayStack *pList);

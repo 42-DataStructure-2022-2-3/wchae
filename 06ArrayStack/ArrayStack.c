@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "ArrayStack.h"
 
 ArrayStack* createArrayStack(int maxElementCount)
 {
@@ -7,7 +7,7 @@ ArrayStack* createArrayStack(int maxElementCount)
 	ArrayStack	*new = (ArrayStack *)calloc(1, sizeof(ArrayStack));
 	if (!new)
 		return FALSE;
-	new->pElement = calloc(maxElementCount, sizeof(ArrayStackNode));
+	new->pElement = calloc(maxElementCount, sizeof(StackNode));
 	if (!new->pElement)
 	{
 		free(new);
@@ -24,7 +24,7 @@ int isArrayStackFull(ArrayStack* pList)
 	return (pList->currentElementCount == pList->maxElementCount);
 }
 
-int	push(ArrayStack *pList, ArrayStackNode element)
+int	push(ArrayStack *pList, StackNode element)
 {
 	if (!pList|| isArrayStackFull(pList))
 		return (-1);
@@ -40,7 +40,7 @@ int	isArrayStackEmpty(ArrayStack *pList)
 	return (pList->currentElementCount == 0);
 }
 
-ArrayStackNode *peek(ArrayStack *pList)
+StackNode *peek(ArrayStack *pList)
 {
 	if (!pList || isArrayStackEmpty(pList))
 		return (FALSE);
@@ -50,14 +50,14 @@ ArrayStackNode *peek(ArrayStack *pList)
 //data 만 주어야하는가?
 //포인터 타입 반환을 위해 새로운 값을 할당해서 주는가
 //그냥 주소값을 주고 카운트만-- 한다면?
-ArrayStackNode *pop(ArrayStack *pList)
+StackNode *pop(ArrayStack *pList)
 {
-	ArrayStackNode	*duplicated;
-	ArrayStackNode	*original;
+	StackNode	*duplicated;
+	StackNode	*original;
 
 	if (!original)
 		return (FALSE);
-	duplicated = (ArrayStackNode*)malloc(sizeof(ArrayStackNode));
+	duplicated = (StackNode*)malloc(sizeof(StackNode));
 	if (!duplicated)	
 		return (FALSE);
 	*duplicated = *original;
@@ -94,7 +94,7 @@ int getArrayStackLength(ArrayStack* pList)
 int main()
 {
 	ArrayStack *pList = createArrayStack(4);
-	ArrayStackNode node;
+	StackNode node;
 	node.data ='A';
 	push(pList, node);
 	node.data ='B';
