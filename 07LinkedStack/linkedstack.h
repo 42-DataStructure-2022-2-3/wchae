@@ -1,30 +1,38 @@
-#ifndef _LINKED_STACK_
-#define _LINKED_STACK_
+
+#ifndef _LINKEDSTACK_
+#define _LINKEDSTACK_
+
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct StackNodeType
 {
-	char data;
-	struct StackNodeType* pLink;
+	int data;
+	struct StackNodeType *pLink;
 } StackNode;
 
 typedef struct LinkedStackType
 {
-	int currentElementCount;	// ÇöÀç ¿ø¼ÒÀÇ °³¼ö
-	StackNode* pTopElement;		// Top ³ëµåÀÇ Æ÷ÀÎÅÍ
+	int currentElementCount;	//í˜„ì¬ ë…¸ë“œ ê°œìˆ˜
+	StackNode *pTop;			//ì›ì†Œ ì €ì¥ì„ ìœ„í•œ ë°°ì—´ í¬ì¸í„°
 } LinkedStack;
 
 LinkedStack* createLinkedStack();
-int pushLS(LinkedStack* pStack, StackNode element);
-StackNode* popLS(LinkedStack* pStack);
-StackNode* peekLS(LinkedStack* pStack);
-void deleteLinkedStack(LinkedStack* pStack);
-int isLinkedStackFull(LinkedStack* pStack);
-int isLinkedStackEmpty(LinkedStack* pStack);
+int isLinkedStackEmpty(LinkedStack* pList);
+void deleteLinkedStack(LinkedStack* pList);
+
+int	push(LinkedStack *pList, StackNode element);
+StackNode *pop(LinkedStack *pList);
+StackNode *peek(LinkedStack *pList);
+
+void displayLinkedStack(LinkedStack* pList);
+int getLinkedStackLength(LinkedStack* pList);
+
 
 #endif
 
-#ifndef _COMMON_STACK_DEF_
-#define _COMMON_STACK_DEF_
+#ifndef _COMMON_LIST_DEF_
+#define _COMMON_LIST_DEF_
 
 #define TRUE		1
 #define FALSE		0
