@@ -73,12 +73,9 @@ ListNode* getLLElement(LinkedList* pList, int position)
 
 void clearLinkedList(LinkedList* pList)
 {
-        ListNode    *tmp;
-
     while (pList->currentElementCount)
         removeLLElement(pList, pList->currentElementCount - 1);
     pList->headerNode.pLink = NULL;
-
 }
 
 int getLinkedListLength(LinkedList* pList)
