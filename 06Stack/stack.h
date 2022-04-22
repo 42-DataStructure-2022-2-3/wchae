@@ -4,27 +4,31 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-typedef struct StackNodeType
+
+typedef struct ArrayStackNodeType
 {
 	int data;
-} StackNode;
-
-typedef struct StackType
+} ArrayStackNode;
+typedef struct ArrayStackType
 {
-	int maxElementCount;		
-	int currentElementCount;	
-	Stack *pElement;	
-} Stack;
+	int maxElementCount;	 	//최대 노드 개수	
+	int currentElementCount;	//현재 노드 개수
+	ArrayStackNode *pElement;			//원소 저장을 위한 배열 포인터
+} ArrayStack;
 
-ArrayList* createArrayList(int maxElementCount);
-void deleteArrayList(ArrayList* pList);
-int isArrayListFull(ArrayList* pList);
-int addALElement(ArrayList* pList, int position, ArrayListNode element);
-int removeALElement(ArrayList* pList, int position);
-ArrayListNode* getALElement(ArrayList* pList, int position);
-void displayArrayList(ArrayList* pList);
-void clearArrayList(ArrayList* pList);
-int getArrayListLength(ArrayList* pList);
+ArrayStack* createArrayStack(int maxElementCount);
+int isArrayStackFull(ArrayStack* pList);
+int	isArrayStackEmpty(ArrayStack *pList);
+
+int	push(ArrayStack *pList, ArrayStackNode element);
+ArrayStackNode *pop(ArrayStack *pList);
+ArrayStackNode *peek(ArrayStack *pList);
+
+void deleteArrayStack(ArrayStack* pList);
+int	isArrayStackEmpty(ArrayStack *pList);
+void displayArrayStack(ArrayStack* pList);
+int getArrayStackLength(ArrayStack* pList);
+
 
 #endif
 
