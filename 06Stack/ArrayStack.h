@@ -1,6 +1,6 @@
 
-#ifndef _STACK_
-#define _STACK_
+#ifndef _ARRAYSTACK_
+#define _ARRAYSTACK_
 
 #include <stdlib.h>
 #include <stdio.h>
