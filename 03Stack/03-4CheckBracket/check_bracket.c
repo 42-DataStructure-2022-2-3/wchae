@@ -39,8 +39,8 @@ int checkBracketMatching(char *exp)
         {
             poped = pop(stack);
             c = poped->data;
-            free(poped);
-            deleteLinkedStack(stack);
+			free(poped);
+			deleteLinkedStack(stack);
             if(!c)
                 return (FALSE);
             else
