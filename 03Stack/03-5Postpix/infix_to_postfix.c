@@ -104,6 +104,7 @@ void	infixToPostfix(char *expr)
 int main(void)
 {
 	char *exp = "2-(5+3)*10";
+
 	printf("%s \n",exp);
 	infixToPostfix(exp);
 	system("leaks a.out > leaks_result; cat leaks_result | grep leaked && rm -rf leaks_result");
