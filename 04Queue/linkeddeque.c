@@ -76,6 +76,8 @@ DequeNode* deleteFrontLD(LinkedDeque* pDeque)
 	pDeque->pFrontNode = new->pRLink;
 	new->pRLink = NULL;
 	pDeque->currentElementCount--;
+	if (pDeque->currentElementCount == 0)
+		pDeque->pRearNode = NULL;
 	return (new);
 }
 
@@ -90,6 +92,8 @@ DequeNode* deleteRearLD(LinkedDeque* pDeque)
 	pDeque->pRearNode = new->pLLink;
 	new->pLLink = NULL;
 	pDeque->currentElementCount--;
+	if (pDeque->currentElementCount == 0)
+		pDeque->pFrontNode = NULL;
 	return (new);
 }
 
