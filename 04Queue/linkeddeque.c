@@ -63,6 +63,7 @@ int insertRearLD(LinkedDeque* pDeque, DequeNode element)
 	pDeque->currentElementCount++;
 	return TRUE;
 }
+// Delete 보다는 pop이 더 맞지않나?
 DequeNode* deleteFrontLD(LinkedDeque* pDeque)
 {
 	DequeNode* new;
@@ -111,7 +112,7 @@ void deleteLinkedDeque(LinkedDeque* pDeque)
 	if (!pDeque || isLinkedDequeEmpty(pDeque))
 		return ;
 	while (peekFrontLD(pDeque))
-		deleteFrontLD(pDeque);
+		free(deleteFrontLD(pDeque));
 	free(pDeque);
 	pDeque = NULL;
 }

@@ -22,12 +22,18 @@ int enqueueCAQ(ArrayQueue* pQueue, ArrayQueueNode element)
 		return FALSE;
 	pQueue->pElement[pQueue->rear] = element;
 	pQueue->rear = (pQueue->rear + 1) % pQueue->maxElementCount;
-	pQueue->currentElementCount++;	
+	pQueue->currentElementCount++;
 	return (TRUE);
 }
 
 int enqueueAQ(ArrayQueue* pQueue, ArrayQueueNode element)
 {
+	if (!pQueue || pQueue->rear == pQueue->maxElementCount)
+		return FALSE;
+	pQueue->pElement[pQueue->rear] = element;
+	pQueue->rear = (pQueue->rear + 1);
+	pQueue->currentElementCount++;
+	return (TRUE);
 }
 
 ArrayQueueNode *dequeueCAQ(ArrayQueue* pQueue)
@@ -45,7 +51,14 @@ ArrayQueueNode *dequeueCAQ(ArrayQueue* pQueue)
 
 ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
 {
-
+	if (!pQueue || isArrayQueueEmpty(pQueue))
+		return FALSE;
+	ArrayQueueNode *pReturn = calloc(1, sizeof(ArrayQueueNode));
+	*pReturn = pQueue->pElement[pQueue->front];
+	pQueue->pElement[pQueue->front].data = 0;
+	pQueue->currentElementCount--;
+	pQueue->front = (pQueue->front + 1);
+	return pReturn;
 }
 
 ArrayQueueNode *peekAQ(ArrayQueue* pQueue)
@@ -85,8 +98,7 @@ void displayArrayQueue(ArrayQueue *pQueue)
 	{
 		printf("[%d] : %d\n", i, pQueue->pElement[i].data);
 	}
-	// printf("{%d} : %d\n", pQueue->maxElementCount, pQueue->pElement[pQueue->maxElementCount
-	].data);
+	// printf("{%d} : %d\n", pQueue->maxElementCount, pQueue->pElement[pQueue->maxElementCount].data);
 }
 
 int main (void)
