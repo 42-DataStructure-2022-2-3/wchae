@@ -157,22 +157,35 @@ int main (void)
 		element.data = i;
 		insertFrontLD(pQueue, element);
 	}
+	displayDequeue(pQueue);
+	printf("==========================\n");
 	for (int i = 0; i < 2; i++)
 	{
 		dequed = deleteRearLD(pQueue);
 		printf("deque = %d \n", dequed->data);
 		free(dequed);
 	}
-
 	displayDequeue(pQueue);
+	printf("==========================\n");
 
-	for (int i = 0; i < 3 ; i++)
+	for (int i = 1; i <= 3 ; i++)
 	{
-		element.data = i * 5;
+		element.data = i * 10;
 		insertRearLD(pQueue, element);
 	}
 	displayDequeue(pQueue);
+	printf("==========================\n");
+
+	int cnt = pQueue->currentElementCount;
+	for (int i = 0; i < cnt; i++)
+	{
+		dequed = deleteRearLD(pQueue);
+		printf("deque = %d \n", dequed->data);
+		free(dequed);
+	}
+	printf("============DELETED==============\n");
+	displayDequeue(pQueue);
+	printf("============DELETED==============\n");
 	deleteLinkedDeque(pQueue);
 	system("leaks a.out");
-
 }

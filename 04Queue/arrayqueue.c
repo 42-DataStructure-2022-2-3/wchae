@@ -113,19 +113,20 @@ int main (void)
 		enqueueCAQ(pQueue, element);
 	}
 	displayArrayQueue(pQueue);
-	for (int i = 0; i < 2; i++)
+	printf("====================\n");
+	for (int i = 0; i < 4; i++)
 	{
-		dequed= dequeueCAQ(pQueue);
+		dequed = dequeueCAQ(pQueue);
 		printf("deque = %d \n", dequed->data);
 		free(dequed);
 	}
 	displayArrayQueue(pQueue);
-
-	for (int i = 0; i < 3 ; i++)
+	printf("====================\n");
+	for (int i = 1; i <= 3 ; i++)
 	{
-		element.data = i * 5;
+		element.data = i * 10;
 		enqueueCAQ(pQueue, element);
-		printf("peek = %d \n", peekAQ(pQueue)->data);
+		// printf("peek = %d \n", peekAQ(pQueue)->data);
 	}
 	displayArrayQueue(pQueue);
 
