@@ -106,30 +106,36 @@ int main (void)
 	ArrayQueue *pQueue;
 	ArrayQueueNode element;
 	ArrayQueueNode	*dequed;
-	pQueue = createArrayQueue(5);
-	for (int i = 0; i <= 5 ; i++)
-	{
-		element.data = i;
-		enqueueCAQ(pQueue, element);
-	}
-	displayArrayQueue(pQueue);
-	printf("====================\n");
-	for (int i = 0; i < 4; i++)
-	{
-		dequed = dequeueCAQ(pQueue);
-		printf("deque = %d \n", dequed->data);
-		free(dequed);
-	}
-	displayArrayQueue(pQueue);
-	printf("====================\n");
-	for (int i = 1; i <= 3 ; i++)
-	{
-		element.data = i * 10;
-		enqueueCAQ(pQueue, element);
-		// printf("peek = %d \n", peekAQ(pQueue)->data);
-	}
-	displayArrayQueue(pQueue);
+	pQueue = createArrayQueue(9);
 
-	system("leaks a.out");
+	for (int i = 0; i < pQueue->maxElementCount * 100; i++){
+		element.data = i;
+		pQueue->pElement[i].data = 2*i;
+		printf("%d\n", pQueue->pElement[i].data);
+	}
+	// for (int i = 0; i <= 5 ; i++)
+	// {
+	// 	element.data = i;
+	// 	enqueueCAQ(pQueue, element);
+	// }
+	// displayArrayQueue(pQueue);
+	// printf("====================\n");
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	dequed = dequeueCAQ(pQueue);
+	// 	printf("deque = %d \n", dequed->data);
+	// 	free(dequed);
+	// }
+	// displayArrayQueue(pQueue);
+	// printf("====================\n");
+	// for (int i = 1; i <= 3 ; i++)
+	// {
+	// 	element.data = i * 10;
+	// 	enqueueCAQ(pQueue, element);
+	// 	// printf("peek = %d \n", peekAQ(pQueue)->data);
+	// }
+	// displayArrayQueue(pQueue);
+
+	// system("leaks a.out");
 
 }

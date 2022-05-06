@@ -40,6 +40,7 @@ int insertFrontLD(LinkedDeque* pDeque, DequeNode element)
 	pDeque->currentElementCount++;
 	return TRUE;
 }
+
 int insertRearLD(LinkedDeque* pDeque, DequeNode element)
 {
 	DequeNode *new;
@@ -63,7 +64,7 @@ int insertRearLD(LinkedDeque* pDeque, DequeNode element)
 	pDeque->currentElementCount++;
 	return TRUE;
 }
-// Delete 보다는 pop이 더 맞지않나?
+
 DequeNode* deleteFrontLD(LinkedDeque* pDeque)
 {
 	DequeNode* new;
@@ -117,9 +118,6 @@ void deleteLinkedDeque(LinkedDeque* pDeque)
 	while (peekFrontLD(pDeque))
 		free(deleteFrontLD(pDeque));
 	free(pDeque);
-	printf("AAAAAAAAAAA");
-	pDeque = NULL;
-	printf("in == %p \n",pDeque);
 }
 
 int isLinkedDequeFull(LinkedDeque* pDeque)
@@ -144,51 +142,4 @@ void displayDequeue(LinkedDeque* pDeque)
 		printf("data = %d \n", next->data);
 		next = next->pRLink;
 	}
-}
-
-int main (void)
-{
-	LinkedDeque *pQueue;
-	DequeNode element;
-	DequeNode	*dequed;
-	pQueue = createLinkedDeque();
-
-	for (int i = 0; i <= 5 ; i++)
-	{
-		element.data = i;
-		insertFrontLD(pQueue, element);
-	}
-	displayDequeue(pQueue);
-	printf("==========================\n");
-	for (int i = 0; i < 2; i++)
-	{
-		dequed = deleteRearLD(pQueue);
-		printf("deque = %d \n", dequed->data);
-		free(dequed);
-	}
-	displayDequeue(pQueue);
-	printf("==========================\n");
-
-	for (int i = 1; i <= 3 ; i++)
-	{
-		element.data = i * 10;
-		insertRearLD(pQueue, element);
-	}
-	displayDequeue(pQueue);
-	printf("==========================\n");
-
-	int cnt = pQueue->currentElementCount;
-	// for (int i = 0; i < cnt; i++)
-	// {
-	// 	dequed = deleteRearLD(pQueue);
-	// 	printf("deque = %d \n", dequed->data);
-	// 	free(dequed);
-	// }
-	printf("============DELETED==============\n");
-	displayDequeue(pQueue);
-	printf("============DELETED==============\n");
-	deleteLinkedDeque(pQueue);
-	// pQueue = NULL;
-	printf("out = %p \n", pQueue);
-	// system("leaks a.out");
 }
