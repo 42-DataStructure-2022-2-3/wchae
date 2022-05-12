@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 typedef struct BinTreeNodeType
 {
@@ -25,7 +26,7 @@ BinTreeNode* insertRightChildNodeBT(BinTreeNode* pParentNode, BinTreeNode elemen
 BinTreeNode* getLeftChildNodeBT(BinTreeNode* pNode);
 BinTreeNode* getRightChildNodeBT(BinTreeNode* pNode);
 void deleteBinTree(BinTree* pBinTree);
-void deleteBinTreeNode(BinTreeNode* pNode);
+void deleteBinTreeNode(BinTreeNode** pNode);
 void    preOrder(BinTreeNode *pTreeNode);
 void    inOrder(BinTreeNode *pTreeNode);
 void    postOrder(BinTreeNode *pTreeNode);

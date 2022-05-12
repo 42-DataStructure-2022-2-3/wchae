@@ -53,14 +53,19 @@ int main(void)
     pNode.data++;
     insertLeftChildNodeBT(pSecondRightNode2, pNode);  // L
     
+    BinTreeNode *pTerminalNode;
     pNode.data++;
-    insertRightChildNodeBT(pSecondRightNode2, pNode); // M
+    pTerminalNode = insertRightChildNodeBT(pSecondRightNode2, pNode); // M
 
     // printf(" %c \n", getLeftChildNodeBT(pTree->pRootNode)->data);
     // printf(" %c \n", getRightChildNodeBT(pTree->pRootNode)->data);
+    deleteBinTreeNode(&pTree->pRootNode);
+    deleteBinTree(pTree);
     preOrder(pTree->pRootNode);
     printf("\n=======================\n");
     inOrder(pTree->pRootNode);
     printf("\n=======================\n");
     postOrder(pTree->pRootNode);
+    
+    system("leaks a.out");
 }

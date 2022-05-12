@@ -9,7 +9,7 @@ BinTree* makeBinTree(BinTreeNode rootNode)
     pRootNode = calloc(1, sizeof(BinTreeNode));
     pTree->pRootNode = pRootNode;
     *pRootNode = rootNode;
-    
+
     return pTree;
 }
 BinTreeNode* getRootNodeBT(BinTree* pBinTree)
@@ -65,16 +65,19 @@ void deleteBinTree(BinTree* pBinTree)
 {
     if (pBinTree)
     {
-        deleteBinTreeNode(pBinTree->pRootNode);
+        deleteBinTreeNode(&pBinTree->pRootNode);
         free(pBinTree);
+        memset(pBinTree, 0, sizeof(BinTree));
     }
 }
-void deleteBinTreeNode(BinTreeNode* pNode)
+// 댕글링 포인터 처리?
+void deleteBinTreeNode(BinTreeNode** pNode)
 {
-    if (pNode)
+    if (*pNode)
     {
-        deleteBinTreeNode(pNode->pLeftChild);
-        deleteBinTreeNode(pNode->pRightChild);
-        free(pNode);
+        deleteBinTreeNode(&(*pNode)->pLeftChild);
+        deleteBinTreeNode(&(*pNode)->pRightChild);
+        free(*pNode);
+        *pNode = NULL;
     }
 }
