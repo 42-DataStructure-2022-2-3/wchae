@@ -12,43 +12,60 @@ int main(void)
     BinTreeNode *pSecondLeftNode2;
     BinTreeNode *pSecondRightNode2;
 
-    pNode.data = 30;
+    pNode.data = 'A';
     pNode.visited = 0;
     pNode.pLeftChild = NULL;
     pNode.pRightChild = NULL;
     BinTree *pTree = makeBinTree(pNode);
 
-    pNode.data = 20;
+    pNode.data++;
     pFirstLeftNode = insertLeftChildNodeBT(pTree->pRootNode, pNode); // B
     
-    pNode.data = 40;
+    pNode.data++;
     pFirstRightNode = insertRightChildNodeBT(pTree->pRootNode, pNode); // C
 
      // Level 2
-    pNode.data = 10;
+    pNode.data++;
     pSecondLeftNode = insertLeftChildNodeBT(pFirstLeftNode, pNode);  // D
     
-    pNode.data = 24;
+    pNode.data++;
     pSecondRightNode = insertRightChildNodeBT(pFirstLeftNode, pNode); // E
 
-    pNode.data = 34;
+    pNode.data++;
     pSecondLeftNode2 = insertLeftChildNodeBT(pFirstRightNode, pNode);  // F
     
-    pNode.data = 46;
+    pNode.data++;
     pSecondRightNode2 = insertRightChildNodeBT(pFirstRightNode, pNode); // G
     
     // Level 3
-    pNode.data = 6;
+    pNode.data++;
     insertLeftChildNodeBT(pSecondLeftNode, pNode);  // H
     
-    pNode.data = 14;
+    pNode.data++;
     insertRightChildNodeBT(pSecondLeftNode, pNode); // I
     
-    pNode.data = 22;
+    pNode.data++;
     insertLeftChildNodeBT(pSecondRightNode, pNode);  // J
 
+    pNode.data++;
+    insertRightChildNodeBT(pSecondLeftNode2, pNode); // K
+    
+    pNode.data++;
+    insertLeftChildNodeBT(pSecondRightNode2, pNode);  // L
+    
+    BinTreeNode *pTerminalNode;
+    pNode.data++;
+    pTerminalNode = insertRightChildNodeBT(pSecondRightNode2, pNode); // M
+
+    // printf(" %c \n", getLeftChildNodeBT(pTree->pRootNode)->data);
+    // printf(" %c \n", getRightChildNodeBT(pTree->pRootNode)->data);
     deleteBinTreeNode(&pTree->pRootNode);
     deleteBinTree(pTree);
+    preOrder(pTree->pRootNode);
+    printf("\n=======================\n");
+    inOrder(pTree->pRootNode);
+    printf("\n=======================\n");
+    postOrder(pTree->pRootNode);
     
     system("leaks a.out");
 }

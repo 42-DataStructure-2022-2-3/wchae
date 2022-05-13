@@ -145,10 +145,11 @@ void deleteHeap(Heap* pHeap)
     pHeap->pElement = NULL;
     free(pHeap);
 }
-
+/**
 void displayHeap(Heap* pHeap)
 {
     // 어떻게 출력해야할까?
     // 1. 같은 레벨 출력
     // 2. 배열 순서대로 출력
 }
+*/
