@@ -23,7 +23,6 @@ BinTreeNode* getRootNodeBT(BinTree* pBinTree)
  만약 이미 자식노드가 있다면? 
     1. 재귀로 맨 밑에까지 가서 알아서 넣어준다
     2. 이미 자식이 있다는 에러를 준다.
-
 */
 BinTreeNode* insertLeftChildNodeBT(BinTreeNode* pParentNode, BinTreeNode element)
 {

@@ -8,7 +8,7 @@
 typedef struct BinTreeNodeType
 {
 	int data;
-	int visited;
+	int key;
 
 	struct BinTreeNodeType* pLeftChild;
 	struct BinTreeNodeType* pRightChild;

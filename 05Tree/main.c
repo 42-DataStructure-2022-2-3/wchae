@@ -1,5 +1,10 @@
 #include "bintree.h"
 
+BinTree *treeCopy(BinTree *pTree)
+{
+	BinTree *pTree;
+}
+
 int main(void)
 {
     BinTreeNode pNode;
