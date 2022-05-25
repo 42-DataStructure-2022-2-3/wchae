@@ -9,7 +9,7 @@ typedef struct ArrayGraphType
 {
 	int maxVertexCount;		
 	int currentVertexCount;	
-	int graphType;			// 1- undirected 2 - directed
+	int graphType;			// 1- 무방향그래프 2 - 방향그래프
 	int **ppAdjEdge;		// 간선 array
 	int *pVertex;			// 노드 array
 } ArrayGraph;
@@ -29,7 +29,7 @@ int addVertexAG(ArrayGraph* pGraph, int vertexID);
 
 // ���� �߰�
 int addEdgeAG(ArrayGraph* pGraph, int fromVertexID, int toVertexID);
-int addEdgewithWeightAG(ArrayGraph* pGraph, int fromVertexID, int toVertexID, int weight);
+int addEdgeWithWeightAG(ArrayGraph* pGraph, int fromVertexID, int toVertexID, int weight);
 
 // ����� ��ȿ�� ����.
 int checkVertexValid(ArrayGraph* pGraph, int vertexID);

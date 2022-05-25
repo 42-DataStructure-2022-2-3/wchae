@@ -1,10 +1,13 @@
 #ifndef _GRAPH_LINKEDLIST_
 #define _GRAPH_LINKEDLIST_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct GraphVertexType
 {
-	int vertexID;		// 노드 ID
-	int weight;			// 가중치.
+	int vertexID;
+	int weight;	
 } GraphVertex;
 
 typedef struct ListNodeType
@@ -15,8 +18,8 @@ typedef struct ListNodeType
 
 typedef struct LinkedListType
 {
-	int currentElementCount;	// 현재 저장된 원소의 개수
-	ListNode headerNode;		// 헤더 노드(Header Node)
+	int currentElementCount;	
+	ListNode headerNode;		
 } LinkedList;
 
 LinkedList* createLinkedList();
@@ -27,6 +30,8 @@ ListNode* getLLElement(LinkedList* pList, int position);
 void clearLinkedList(LinkedList* pList);
 int getLinkedListLength(LinkedList* pList);
 void deleteLinkedList(LinkedList* pList);
+
+
 #endif
 
 #ifndef _COMMON_LIST_DEF_
