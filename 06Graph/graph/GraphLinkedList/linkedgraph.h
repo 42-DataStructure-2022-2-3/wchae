@@ -26,9 +26,6 @@ void deleteLinkedGraph(LinkedGraph *pGraph);
 int isEmptyLG(LinkedGraph *pGraph);
 
 
-
-
-
 int removeVertexLG(LinkedGraph *pGraph, int vertexID);
 int removeEdgeLG(LinkedGraph *pGraph, int fromVertexID, int toVertexID);
 void deleteGraphNode(LinkedList *pList, int delVertexID);
