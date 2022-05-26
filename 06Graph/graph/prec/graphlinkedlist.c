@@ -165,14 +165,31 @@ int addEdgeLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID)
     return (TRUE);
 }
 
+int addElementForVertex(LinkedList *pList, int position, GraphVertex vertex)
+{
+	ListNode node = {0,};
+	node.data = vertex;
+	return (addLLElement(pList, position, node));
+}
+
 int addEdgeWithWeightLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID, int weight)
 {
-    ListNode node;
+    GraphVertex toNode;
     if (!checkVertexValid(pGraph, fromVertexID) || !checkVertexValid(pGraph, toVertexID))
         return (FALSE);
-    node.data.vertexID = toVertexID;
-    node.data.weight = weight;
-    addLLElement(pGraph->ppAdjEdge[fromVertexID], pGraph->ppAdjEdge[fromVertexID]->currentElementCount, node);
+	toNode.vertexID = toVertexID;
+	toNode.weight = weight;
+	addElementForVertex(pGraph->ppAdjEdge[fromVertexID], 0, toNode);
+	pGraph->currentElementCount++;
+
+	if (pGraph->graphType == GRAPH_UNDIRECTED)
+	{
+    	GraphVertex fromNode;
+		fromNode.vertexID = fromVertexID;
+		fromNode.weight = weight;
+		addElementForVertex(pGraph->ppAdjEdge[toVertexID], 0, fromNode);
+		pGraph->currentElementCount++;
+	}
     return (TRUE);
 }
 
@@ -182,6 +199,48 @@ int checkVertexValid(LinkedGraph* pGraph, int vertexID)
         return (FALSE);
     return (pGraph->pVertex[vertexID]);
 }
+
+int	findGraphNodePosition(LinkedList *pList, int vertexID)
+{
+	ListNode *pNode;
+	int position;
+	
+	position = 0;
+	if (pList)
+	{
+		pNode = pList->headerNode.pLink;
+		while (pNode)
+		{
+			if (pNode->data.vertexID == vertexID)
+				return position;
+			pNode = pNode->pLink;
+			position++;
+		}
+	}
+	return (-1);
+}
+
+void deleteLinkedGraphNode(LinkedList* pList, int delVertexID)
+{
+	ListNode *pNode;
+	int position;
+
+	position = findGraphNodePosition(pList, delVertexID);
+	if (0 <= position)
+		removeLLElement(pList, position);
+}
+
+int removeEdgeLG2(LinkedGraph* pGraph, int fromVertexID, int toVertexID)
+{
+	if (!checkVertexValid(pGraph, fromVertexID) || !checkVertexValid(pGraph, toVertexID))
+        return (FALSE);
+	deleteLinkedGraphNode(pGraph->ppAdjEdge[fromVertexID], toVertexID);
+	if (pGraph->graphType == GRAPH_UNDIRECTED)
+		deleteLinkedGraphNode(pGraph->ppAdjEdge[toVertexID], fromVertexID);
+	return (TRUE);
+}
+
+
 
 int removeEdgeLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID)
 {
