@@ -55,6 +55,10 @@ int	main(void)
 	deleteArrayGraph(ag1);
 	deleteArrayGraph(ag2);
 	deleteArrayGraph(ag3);
+	free(ag1);
+	free(ag2);
+	free(ag3);
+	system("leaks a.out");
 	return 0;
 
 }
