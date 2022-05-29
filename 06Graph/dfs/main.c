@@ -13,8 +13,10 @@ void testSet(void)
 	addEdgeLG(lg, 4, 5);
 	addEdgeLG(lg, 5, 6);
 	addEdgeLG(lg, 6, 7);
-	displayLinkedGraph(lg);
-	dfs(lg, 0);
+	// displayLinkedGraph(lg);
+	dfsNoRecursive(lg, 0);
+	printf("\n");
+	dfs(lg,0);
 	deleteLinkedGraph(lg);
 
 }
@@ -41,10 +43,11 @@ int main(void)
 	displayLinkedGraph(lg);
 	printf("\n=====================\n");
 	dfs(lg, 0);
-	printf("\n=====================\n");
-	// testSet();
-	printf("\n======x===============\n");
+	printf("\n");
 	dfsNoRecursive(lg, 0);
+	printf("\n=====================\n");
+	testSet();
+
 	// printf("\n======x===============\n");
 
 }
