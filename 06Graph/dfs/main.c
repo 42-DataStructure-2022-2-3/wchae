@@ -16,7 +16,7 @@ void testSet(void)
 	displayLinkedGraph(lg);
 	dfs(lg, 0);
 	deleteLinkedGraph(lg);
-	
+
 }
 
 int main(void)
@@ -42,5 +42,9 @@ int main(void)
 	printf("\n=====================\n");
 	dfs(lg, 0);
 	printf("\n=====================\n");
-	testSet();
+	// testSet();
+	printf("\n======x===============\n");
+	dfsNoRecursive(lg, 0);
+	// printf("\n======x===============\n");
+
 }

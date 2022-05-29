@@ -4,5 +4,6 @@
 #include "linkedstack/linkedstack.h"
 
 void	dfs(LinkedGraph *pGraph, int startVertexId);
+void	dfsNoRecursive(LinkedGraph *pGraph, int startVertexId);
 
 #endif
