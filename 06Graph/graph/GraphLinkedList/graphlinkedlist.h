@@ -31,6 +31,7 @@ typedef struct LinkedGraphType
 	LinkedList **ppAdjEdge;
 } LinkedGraph;
 
+/* LinkedList */
 LinkedList* createLinkedList();
 int addLLElement(LinkedList* pList, int position, ListNode element);
 int removeLLElement(LinkedList* pList, int position);
@@ -38,6 +39,21 @@ ListNode* getLLElement(LinkedList* pList, int position);
 void clearLinkedList(LinkedList* pList);
 int getLinkedListLength(LinkedList* pList);
 void deleteLinkedList(LinkedList* pList);
+
+/* LinkedGraph */
+
+LinkedGraph* createLinkedGraph(int maxVertexCount);
+LinkedGraph* createLinkedDirectedGraph(int maxVertexCount);
+int isEmptyLG(LinkedGraph* pGraph);
+int addVertexLG(LinkedGraph* pGraph, int vertexID);
+int addEdgeLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID);
+int addEdgeWithWeightLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID, int weight);
+int checkVertexValid(LinkedGraph* pGraph, int vertexID);
+int removeEdgeLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID);
+int removeVertexLG(LinkedGraph* pGraph, int vertexID);
+void deleteLinkedGraph(LinkedGraph* pGraph);
+void displayLinkedGraph(LinkedGraph* pGraph);
+
 #endif
 
 #ifndef _COMMON_LIST_DEF_

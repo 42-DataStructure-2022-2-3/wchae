@@ -121,9 +121,7 @@ LinkedGraph* createLinkedGraph(int maxVertexCount)
     lg->pVertex = calloc(maxVertexCount, sizeof(int));
     lg->ppAdjEdge = calloc(maxVertexCount, sizeof(LinkedList *));
     for (int i = 0; i < maxVertexCount; i++)
-    {
         lg->ppAdjEdge[i] = createLinkedList();
-    }
     return (lg);
 }
 
@@ -212,6 +210,20 @@ int removeVertexLG(LinkedGraph* pGraph, int vertexID)
 	return (TRUE);
 }
 
+void deleteLinkedGraph(LinkedGraph* pGraph)
+{
+	for (int i = 0; i < pGraph->maxVertexCount; i++)
+		deleteLinkedList(pGraph->ppAdjEdge[i]);
+	free(pGraph->pVertex);
+	free(pGraph->ppAdjEdge);
+}
 
-void deleteLinkedGraph(LinkedGraph* pGraph);
-void displayLinkedGraph(LinkedGraph* pGraph);
+void displayLinkedGraph(LinkedGraph* pGraph)
+{
+	for (int i = 0; i < pGraph->maxVertexCount; i++)
+	{
+		printf("%d ->\t", i);
+		displayLinkedList(pGraph->ppAdjEdge[i]);
+		printf('\"\n');
+	}
+}
