@@ -31,8 +31,8 @@ void	dfs(LinkedGraph *pGraph, int startVertexId)
 {
 	LinkedStack *stack = createLinkedStack();
 	StackNode element;
-	
 	int	*visited;
+
 	visited = calloc(pGraph->maxVertexCount, sizeof (int));
 	element.data = pGraph->ppAdjEdge[startVertexId]->headerNode.pLink->data.vertexID;
 	printf(" %d ", startVertexId);
@@ -40,5 +40,6 @@ void	dfs(LinkedGraph *pGraph, int startVertexId)
 	push(stack, element);
 	recursive(pGraph, stack, visited);
 	deleteLinkedStack(stack);
-	system("leaks a.out");
+	free(visited);
+	// system("leaks a.out");
 }

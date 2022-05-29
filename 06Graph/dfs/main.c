@@ -1,10 +1,23 @@
 #include "dfs.h"
 
-// void testSet(void)
-// {
-// 		LinkedGraph *lg = createLinkedGraph(size);
-
-// }
+void testSet(void)
+{
+	int size = 8;
+	LinkedGraph *lg = createLinkedGraph(size);
+	for (int i = 0 ; i < size; i++)
+		addVertexLG(lg, i);
+	addEdgeLG(lg, 0, 1);
+	addEdgeLG(lg, 1, 2);
+	addEdgeLG(lg, 2, 3);
+	addEdgeLG(lg, 3, 4);
+	addEdgeLG(lg, 4, 5);
+	addEdgeLG(lg, 5, 6);
+	addEdgeLG(lg, 6, 7);
+	displayLinkedGraph(lg);
+	dfs(lg, 0);
+	deleteLinkedGraph(lg);
+	
+}
 
 int main(void)
 {
@@ -26,7 +39,8 @@ int main(void)
 	// addEdgeLG(lg, 100, 99);
 
 	displayLinkedGraph(lg);
-	printf("\n==============\n");
+	printf("\n=====================\n");
 	dfs(lg, 0);
-
+	printf("\n=====================\n");
+	testSet();
 }
