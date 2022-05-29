@@ -1,5 +1,11 @@
 #include "dfs.h"
 
+// void testSet(void)
+// {
+// 		LinkedGraph *lg = createLinkedGraph(size);
+
+// }
+
 int main(void)
 {
 	int size = 8;
@@ -22,4 +28,5 @@ int main(void)
 	displayLinkedGraph(lg);
 	printf("\n==============\n");
 	dfs(lg, 0);
+
 }

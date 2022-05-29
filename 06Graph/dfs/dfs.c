@@ -5,35 +5,24 @@ static void recursive(LinkedGraph *pGraph, LinkedStack *stack, int *visited)
 	StackNode	*node;
 	ListNode	*vertex;
 
-	node = pop(stack);
-	while (visited[node->data])
-	{
-		if(!node)
-			break;
-		free(node);
-		node = pop(stack);
-	}
-	if (node == NULL)
+	if (isLinkedStackEmpty(stack))
 		return ;
-
-	vertex = pGraph->ppAdjEdge[node->data]->headerNode.pLink;
-	// printf("============vertex==============\n");
-	// printf(" vertexID_> %d \n", vertex->data.vertexID);
-	// printf("============vertex==============\n");
 	
+	node = pop(stack);
+	printf(" %d ", node->data);
+	visited[node->data] = USED;
+	vertex = pGraph->ppAdjEdge[node->data]->headerNode.pLink;
 	while (vertex)
 	{
-		StackNode addNode;
-		addNode.data = vertex->data.vertexID;
-		push(stack, addNode);
+		StackNode new;
+		if (visited[vertex->data.vertexID] == NOT_USED)
+		{
+			visited[vertex->data.vertexID] = USED;
+			new.data = vertex->data.vertexID;
+			push(stack, new);
+		}
 		vertex = vertex->pLink;
 	}
-	displayLinkedStack(stack);
-	printf("======================\n");
-	printf("%d \n", node->data);
-	printf("======================\n");
-	
-	visited[node->data] = USED;
 	free(node);
 	recursive(pGraph, stack, visited);
 }
@@ -46,9 +35,10 @@ void	dfs(LinkedGraph *pGraph, int startVertexId)
 	int	*visited;
 	visited = calloc(pGraph->maxVertexCount, sizeof (int));
 	element.data = pGraph->ppAdjEdge[startVertexId]->headerNode.pLink->data.vertexID;
-	// printf(" %d ", startVertexId);
+	printf(" %d ", startVertexId);
 	visited[startVertexId] = USED;
 	push(stack, element);
 	recursive(pGraph, stack, visited);
-	// system("leaks a.out");
+	deleteLinkedStack(stack);
+	system("leaks a.out");
 }
