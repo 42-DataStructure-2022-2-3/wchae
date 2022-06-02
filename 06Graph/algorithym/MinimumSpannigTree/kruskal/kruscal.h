@@ -3,6 +3,8 @@
 
 # include "graphlinkedlist.h"
 # include "heap.h"
+# include "linkedstack/linkedstack.h"
+
 
 //오름차순 정렬
 Heap *orderEdges(LinkedGraph *pGraph);

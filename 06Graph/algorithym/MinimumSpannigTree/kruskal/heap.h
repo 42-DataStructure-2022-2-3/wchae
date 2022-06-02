@@ -9,7 +9,7 @@ typedef struct HeapNodeType
 {
 	int fromVertexId;
 	int toVertexId;
-	int weight;
+	int data;
 } HeapNode;
 
 typedef struct HeapType

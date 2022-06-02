@@ -155,45 +155,9 @@ void deleteHeap(Heap* pHeap)
 
 void displayHeap(Heap* pHeap)
 {
-    // 어떻게 출력해야할까?
-    // 1. 같은 레벨 출력
-    // 2. 배열 순서대로 출력
 	for (int i = 1; i <= pHeap->currentElementCount; i++)
 	{
 		printf("[%d : %d] ", i, pHeap->pElement[i].data);
-	}
-	printf("\n");
-}
-static int calcTopLevel(int max)
-{
-	int cnt = 1;
-	while (0 < max)
-	{
-		max /= 2;
-		cnt++;
-	}
-	return cnt;
-}
-/*미완성*/
-
-void displayHeapByLevel(Heap *pHeap)
-{
-	int i = 1;
-	int	topLevel = calcTopLevel(pHeap->maxElementCount);
-	// printf("%d \n",(int)pow(2,0));
-	printf("topLevel = %d \n",topLevel);
-	for (i = 1; i <= topLevel;){
-		for (int j = i + 1; j < topLevel; j++)
-			printf(" ");
-		int k = (int)pow(2, i - 1);
-		// printf("i == %d k==%d\n",i ,k);
-		for(; 0 < k; k--)
-		{
-			if(pHeap->pElement[i].data == 0)
-				continue;
-			printf("%d ", pHeap->pElement[i++].data);
-		}
-		printf("\n");
 	}
 	printf("\n");
 }

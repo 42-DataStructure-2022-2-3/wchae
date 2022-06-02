@@ -25,7 +25,8 @@ typedef struct LinkedListType
 typedef struct LinkedGraphType
 {
 	int maxVertexCount;
-	int currentElementCount;
+	int currentVertexCount;
+	int currentEdgeCount;
 	int graphType;
 	int	*pVertex;
 	LinkedList **ppAdjEdge;
@@ -39,6 +40,7 @@ ListNode* getLLElement(LinkedList* pList, int position);
 void clearLinkedList(LinkedList* pList);
 int getLinkedListLength(LinkedList* pList);
 void deleteLinkedList(LinkedList* pList);
+void displayLinkedList(LinkedList *pList);
 
 /* LinkedGraph */
 
