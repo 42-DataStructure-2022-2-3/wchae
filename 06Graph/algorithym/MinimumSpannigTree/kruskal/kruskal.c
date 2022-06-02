@@ -27,7 +27,6 @@ LinkedGraph *kruskal(LinkedGraph *pGraph)
 		return (NULL);
 	for (int i = 0; i < edgeCount; i++)
 	{
-		//
 		pHeapNode = deleteMinHeapNode(pHeap);
 		//순환 발생 점검
 		isCycle = checkCycle(pReturn, pHeapNode->fromVertexId, pHeapNode->toVertexId);
@@ -38,10 +37,9 @@ LinkedGraph *kruskal(LinkedGraph *pGraph)
 				addVertexLG(pReturn, pHeapNode->fromVertexId);
 			if (pReturn->pVertex[pHeapNode->toVertexId] == NOT_USED)
 				addVertexLG(pReturn, pHeapNode->toVertexId);
+			addEdgeWithWeightLG(pReturn, pHeapNode->fromVertexId, pHeapNode->toVertexId, pHeapNode->weight);
+			printf ("[%d], 최소 가중치 : (%d,%d)->%d\n", i, pHeapNode->fromVertexId, pHeapNode->toVertexId, pHeapNode->weight);
 		}
-		addEdgeWithWeightLG(pReturn, pHeapNode->fromVertexId, pHeapNode->toVertexId, pHeapNode->weight);
-
-		printf ("[%d], 최소 가중치 : (%d,%d)->%d\n", i, pHeapNode->fromVertexId, pHeapNode->toVertexId, pHeapNode->weight);
 		free(pHeapNode);
 		if (getVertexCountLG(pReturn) == currentNodeCount)
 			break;

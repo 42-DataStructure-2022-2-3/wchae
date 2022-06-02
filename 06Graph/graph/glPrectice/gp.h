@@ -11,7 +11,6 @@ typedef struct LinkedGraphType
 	int			*pVertex;
 	LinkedList	**ppAdjEdge;
 	int			graphType;
-
 	int			currentEdgeCount;
 	int			currentVertexCount;
 } LinkedGraph;
