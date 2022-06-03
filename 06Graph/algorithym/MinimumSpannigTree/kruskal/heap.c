@@ -157,7 +157,7 @@ void displayHeap(Heap* pHeap)
 {
 	for (int i = 1; i <= pHeap->currentElementCount; i++)
 	{
-		printf("[%d : %d] ", i, pHeap->pElement[i].data);
+		printf("%d [%d -> %d] %d \n", i, pHeap->pElement[i].fromVertexId, pHeap->pElement[i].toVertexId, pHeap->pElement[i].data);
 	}
 	printf("\n");
 }

@@ -89,6 +89,8 @@ LinkedGraph *kruskal(LinkedGraph *pGraph)
 		return (NULL);
 
 	pHeap = orderEdges(pGraph);
+	displayHeap(pHeap);
+	printf("\nHEAP====================\n");
 	if (!pHeap)
 		return (NULL);
 	for (int i = 0; i < edgeCount; i++)
