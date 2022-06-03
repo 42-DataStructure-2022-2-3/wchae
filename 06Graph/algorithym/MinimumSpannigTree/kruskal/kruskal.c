@@ -49,7 +49,7 @@ int	checkCycle(LinkedGraph *pGraph, int fromVertexId, int toVertexId)
 		if (poped && poped->data == toVertexId)
 		{
 			printf("From : %d	To: %d 순환 발생 \n",fromVertexId, toVertexId);
-			return (FALSE);
+			return (TRUE);
 		}
 		edgeList = pGraph->ppAdjEdge[poped->data]->headerNode.pLink;
 		while (edgeList)
