@@ -112,36 +112,30 @@ HeapNode* deleteMaxHeapNode (Heap* pHeap)
 HeapNode* deleteMinHeapNode (Heap* pHeap)
 {
     HeapNode* retMinNode;
+    HeapNode* pTemp;
     int i;
-    int minIndex;
 
     retMinNode = calloc(1, sizeof(HeapNode));
     *retMinNode = pHeap->pElement[1];
     i = pHeap->currentElementCount;
+	pTemp = &(pHeap->pElement[i]);
     pHeap->currentElementCount--;
-    pHeap->pElement[1] = pHeap->pElement[i];
-    memset(&pHeap->pElement[i], 0, sizeof(HeapNode));
-    i = 1; 
-    while (1)
+
+    int parent =1;
+	int child =2;
+    while (child <= pHeap->currentElementCount)
     {
-		// printf("i = %d\n", i);
-		if (pHeap->currentElementCount < i)
+		if ((child < pHeap->currentElementCount) 
+		&& pHeap->pElement[child + 1].data < pHeap->pElement[child].data)
+			child++;
+		if (pTemp->data <= pHeap->pElement[child].data)
 			break;
-        if (pHeap->pElement[i * 2].data > pHeap->pElement[i * 2 + 1].data)
-            minIndex = i * 2 + 1; //rightChild
-        else
-            minIndex = i * 2; // leftChild
-        if (pHeap->pElement[minIndex].data < pHeap->pElement[i].data)
-        {
-            HeapNode tmp;
-            tmp = pHeap->pElement[minIndex];
-            pHeap->pElement[minIndex] = pHeap->pElement[i];
-            pHeap->pElement[i] = tmp;
-            i = minIndex;
-        }
-        else
-            break;
+		
+		pHeap->pElement[parent] = pHeap->pElement[child];
+		parent = child;
+		child *= 2;
     }
+	pHeap->pElement[parent] = *pTemp;
     return (retMinNode);
 }
 void deleteHeap(Heap* pHeap)
