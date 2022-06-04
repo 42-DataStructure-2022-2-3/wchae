@@ -22,7 +22,7 @@ int	main(void)
 	printf("\n========GRAPH=============\n");
 	displayLinkedGraph(lg);
 	
-	// printf("\n========PRIM_RESULT=============\n");
+	printf("\n========PRIM_RESULT=============\n");
 	// prim_tree = mstPrim(lg,0);
 	// displayLinkedGraph(prim_tree);
 

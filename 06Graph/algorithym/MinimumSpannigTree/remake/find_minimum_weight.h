@@ -9,7 +9,7 @@
 #include "linkeddequeue/linkeddeque.h"
 
  LinkedGraph    *kruskal(LinkedGraph *pGraph);
- LinkedGraph    *prim(LinkedGraph *pGraph);
+ LinkedGraph    *mstPrim(LinkedGraph *pGraph, int startVertex);
 
 
 #endif

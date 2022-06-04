@@ -16,6 +16,13 @@ typedef struct LinkedGraphType
 	LinkedList **ppAdjEdge;
 } LinkedGraph;
 
+typedef struct GraphEdgeType
+{
+	int vertexIdFrom;
+	int vertexIdTo;
+	int weight;
+
+} GraphEdge;
 /* LinkedGraph */
 
 LinkedGraph* createLinkedGraph(int maxVertexCount);

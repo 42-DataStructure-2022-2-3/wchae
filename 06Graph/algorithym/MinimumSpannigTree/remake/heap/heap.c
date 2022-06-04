@@ -66,7 +66,7 @@ void insertMinHeapNode (Heap* pHeap, HeapNode element)
     pHeap->pElement[i] = element;
     pHeap->currentElementCount++;
     while(i != 1)
-    {
+    { 
         parentNode = &pHeap->pElement[i / 2];
         if ((*parentNode).data > pHeap->pElement[i].data)
         {
