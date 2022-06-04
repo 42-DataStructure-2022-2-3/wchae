@@ -25,8 +25,6 @@ HeapNode* deleteMinHeapNode (Heap* pHeap);
 void displayHeap(Heap* pHeap);
 void displayHeapByLevel(Heap *pHeap);
 
-HeapNode* deleteMinHeapAH(Heap* pHeap);
-
 
 #endif
 

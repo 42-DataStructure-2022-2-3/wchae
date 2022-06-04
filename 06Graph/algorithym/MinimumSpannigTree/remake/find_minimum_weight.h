@@ -5,5 +5,11 @@
 #include "heap/heap.h"
 #include "linkedgraph/graphlinkedlist.h"
 #include "linkedstack/linkedstack.h"
+#include "linkedlist/linkedlist.h"
+#include "linkeddequeue/linkeddeque.h"
+
+ LinkedGraph    *kruskal(LinkedGraph *pGraph);
+ LinkedGraph    *prim(LinkedGraph *pGraph);
+
 
 #endif

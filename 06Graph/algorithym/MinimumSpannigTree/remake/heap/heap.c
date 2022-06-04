@@ -57,6 +57,9 @@ void insertMinHeapNode (Heap* pHeap, HeapNode element)
     int i;
     HeapNode *parentNode;
 
+    if (!pHeap)
+        return ;
+
     if (isHeapFull(pHeap))
         pHeap = reallocHeap(pHeap);
     i = pHeap->currentElementCount + 1;

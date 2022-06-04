@@ -178,7 +178,7 @@ void displayBFSLinkedGraph(LinkedGraph *pGraph)
 	if(!isLinkedGraphVerified(pGraph))
 		return ;
 	
-	LinkedDeque *queue = createLinkedStack();
+	LinkedDeque *queue = createLinkedDeque();
 	int *pVisited = calloc(pGraph->maxVertexCount, sizeof(int));
 	int i = 0;
 	while(i < pGraph->maxVertexCount)
@@ -193,7 +193,7 @@ void displayBFSLinkedGraph(LinkedGraph *pGraph)
 	DequeNode element;
 	element.data.vertexID = i;
 	insertFrontLD(queue, element);
-	pVisited[i] == USED;
+	pVisited[i] = USED;
 	// printf(" %d ", i);
 	while (!isLinkedDequeEmpty(queue))
 	{

@@ -6,24 +6,6 @@
 #define C_RED  "\033[31m"
 #define C_NRML "\033[0m"
 
-typedef struct GraphVertexType
-{
-	int vertexID;
-	int weight;	
-} GraphVertex;
-
-typedef struct ListNodeType
-{
-	GraphVertex data;
-	struct ListNodeType* pLink;
-} ListNode;
-
-typedef struct LinkedListType
-{
-	int currentElementCount;	
-	ListNode headerNode;		
-} LinkedList;
-
 typedef struct LinkedGraphType
 {
 	int maxVertexCount;

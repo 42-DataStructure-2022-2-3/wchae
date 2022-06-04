@@ -22,16 +22,6 @@ typedef struct LinkedListType
 	ListNode headerNode;		
 } LinkedList;
 
-typedef struct LinkedGraphType
-{
-	int maxVertexCount;
-	int currentVertexCount;
-	int currentEdgeCount;
-	int graphType;
-	int	*pVertex;
-	LinkedList **ppAdjEdge;
-} LinkedGraph;
-
 /* LinkedList */
 LinkedList* createLinkedList();
 int addLLElement(LinkedList* pList, int position, ListNode element);

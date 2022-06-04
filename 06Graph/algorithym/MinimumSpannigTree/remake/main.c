@@ -1,4 +1,6 @@
+
 #include "find_minimum_weight.h"
+#include "commonheader.h"
 
 int	main(void)
 {
@@ -20,9 +22,9 @@ int	main(void)
 	printf("\n========GRAPH=============\n");
 	displayLinkedGraph(lg);
 	
-	printf("\n========PRIM_RESULT=============\n");
-	prim_tree = mstPrim(lg,0);
-	displayLinkedGraph(prim_tree);
+	// printf("\n========PRIM_RESULT=============\n");
+	// prim_tree = mstPrim(lg,0);
+	// displayLinkedGraph(prim_tree);
 
 	printf("\n========KRUSKAL_RESULT=============\n");
 	kru_tree = kruskal(lg);
