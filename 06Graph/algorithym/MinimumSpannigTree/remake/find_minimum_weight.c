@@ -102,8 +102,18 @@ int checkCycle(LinkedGraph *pMinWeightTree, int fromVertex, int toVertex)
     }
     deleteHeap(pMinHeap);
     return (pMinWeightTree);
- }
- int checkEdge(int ver)
+}
+
+static int isExistEdge(ListNode *node, int data)
+{
+	while (node)
+	{
+		if (node->data.vertexID == data)
+			return (TRUE);
+		node = node->pLink;
+	}
+	return (0);
+}
 
 void    getMinWeight(LinkedGraph *pGraph, LinkedGraph *minWeightTree, int from, GraphEdge *minWeightEdge)
 {
@@ -119,7 +129,7 @@ void    getMinWeight(LinkedGraph *pGraph, LinkedGraph *minWeightTree, int from, 
          if (vertex->data.weight < minWeightEdge->weight)
          {
              //checkEdge
-             isExist = checkEdge(minWeightTree, from, vertex->data.vertexID);
+             isExist = isExistEdge(minWeightTree->ppAdjEdge[from]->headerNode.pLink, vertex->data.vertexID);
              isCycle = checkCycle(minWeightTree, from, vertex->data.vertexID);
              if (!isCycle && !isExist)
              {

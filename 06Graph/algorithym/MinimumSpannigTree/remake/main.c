@@ -23,8 +23,8 @@ int	main(void)
 	displayLinkedGraph(lg);
 	
 	printf("\n========PRIM_RESULT=============\n");
-	// prim_tree = mstPrim(lg,0);
-	// displayLinkedGraph(prim_tree);
+	prim_tree = mstPrim(lg,0);
+	displayLinkedGraph(prim_tree);
 
 	printf("\n========KRUSKAL_RESULT=============\n");
 	kru_tree = kruskal(lg);
