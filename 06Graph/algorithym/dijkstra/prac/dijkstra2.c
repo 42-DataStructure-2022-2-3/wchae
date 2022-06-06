@@ -91,18 +91,21 @@ int	*shortestPathDijkstra(LinkedGraph *pGraph, int startVertexId)
 		{
 			int toVertexId = pListNode->data.vertexID;
 			int weight = pListNode->data.weight;
-			// 다시보기 2022-0606
-			// 이게맞나?
 			//시작노드->가중치가 가장짧은 두번째노드
 			//까지의 가중치 (0->1 ---2)
 			y_v = pReturn[vertexId];
 			//시작노드->가중치가 가장짧은 두번째노드와 연결된 그다음노드
 			// 까지의 가중치 (0->2)
 			y_w = pReturn[toVertexId];
+			// 0->1->2 가중치 < 0 -> 2 일경우
 			if (y_v + weight < y_w)
 				pReturn[toVertexId] = y_v + weight;
+			pListNode = pListNode->pLink;
 		}
+		for (j = 0; j < maxNodeCount; j++)
+			printf("\t (%d, %d) -> %d \n", startVertexId, j, pReturn[j]);
 	}
-
-	
+	free(pSelected);
+	//시작노드부터 각 노드별 가중치 리스트 반환
+	return pReturn;
 }
