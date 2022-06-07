@@ -1,18 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../commonheader.h"
 
-void	printArray(int *arr, int arr_len)
-{
-	int i = 0;
-	while (i < arr_len)
-	{
-		printf(" %d ", arr[i]);
-		i++;
-	}
-	printf("\n");
-}
-
-void	selectionSort(int	arr[], int arr_len)
+void	selectionsort(int	arr[], int arr_len)
 {
 	int min;
 	int tmp;
@@ -32,14 +20,4 @@ void	selectionSort(int	arr[], int arr_len)
 		printf("%d 번째 \n",i + 1);
 		printArray(arr, arr_len);
 	}
-}
-
-int		main(void)
-{
-	int	arr[8] = {80, 50, 70, 10, 60, 20, 40, 30};
-	int	min = 99999999;
-	printArray(arr, 8);
-	selectionSort(arr, 8);
-	printArray(arr, 8);
-
 }
