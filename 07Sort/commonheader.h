@@ -7,4 +7,6 @@
 void	printArray(int *arr, int arr_len);
 void	selectionsort(int	arr[], int arr_len);
 void	bubblesort(int	arr[], int arr_len);
+void	quickSort(int arr[], int start, int end);
+
 #endif
