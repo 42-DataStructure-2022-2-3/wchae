@@ -69,6 +69,43 @@ void	selection_sort(int *arr, int arr_len)
 		print_array(arr, arr_len);
 	}
 }
+static void ft_swap(int *a, int *b)
+{
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+int		partition(int *arr, int start, int end)
+{
+	int left = start;
+	int right = end;
+	int pivot = end;
+
+	while (left < right)
+	{
+		while ( (arr[left] < arr[pivot]) && (left < right))
+			left++;
+		while ( (arr[pivot] <= arr[right]) && (left < right))
+			right--;
+		if (left < right)
+			ft_swap(&arr[left], &arr[right]);
+	}
+	ft_swap(&arr[pivot], &arr[right]);
+	print_array(arr, end);
+	return (right);
+}
+
+void	quick_sort(int *arr, int start, int end)
+{
+	int pivot = 0;
+	if (start < end)
+	{
+		pivot = partition(arr, start, end);
+		quick_sort(arr, start, pivot - 1);
+		quick_sort(arr, pivot + 1, end);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -101,11 +138,14 @@ int	main(int argc, char **argv)
 
 	printf("\nSELECTION\n");
 	selection_sort(arr2, arr_len);
-	print_array(arr, arr_len);
+	print_array(arr2, arr_len);
 
 	printf("\nQUICK\n");
-	quick_sort(arr2, arr_len);
+	quick_sort(arr3, 0, arr_len - 1);
+	print_array(arr3, arr_len);
 	free(arr);
+	free(arr2);
+	free(arr3);
 	arr = NULL;
 	return (0);
 }
